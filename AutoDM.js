@@ -21,6 +21,7 @@ const SendMessage = user => {
     screen_name,
     text: GenerateMessage(name)
   };
+  console.log(obj);
   // the follow stream track if I follow author person too.
   if (screen_name != my_user_name) {
     console.log(" 🎉🎉🎉🎉 New Follower  🎉🎉🎉🎉🎉 ");

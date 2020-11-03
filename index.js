@@ -1,5 +1,6 @@
-const AutoDM = require("./AutoDM.js");
-
+// const AutoDM = require("./AutoDM.js");
+const AutoTweet = require("./AutoTweet.js");
 console.log("App started successfully 🙌🙌");
 
-AutoDM();
+// AutoDM();
+AutoTweet();
