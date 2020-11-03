@@ -1,9 +1,15 @@
-const T = require("./Twit.js");
-const my_user_name = require("../config").userName;
+const Twit = require("twit");
+const config = require("./config.js");
+//console.log(config.twitterApp);
+
+const T = new Twit(config.twitterApp);
+const my_user_name = config.userName;
 const timeout = 1000 * 60 * 5; // timeout to send the message 5 min
 
 const AutoDM = () => {
-  const stream = T.stream("user");
+  // const stream = T.stream("user");
+  var postername = '@'+config.userName;
+  var stream = T.stream('statuses/filter', { track: postername });
   console.log("Start Sending Auto Direct Message 🚀🚀🚀");
   stream.on("follow", SendMessage);
 };
@@ -42,7 +48,6 @@ const GenerateMessage = name => {
   const d = new Date();
   const dayName = days[d.getDay()];
   return `Hi ${name} Thanks for .... \n Happy ${dayName} 😊😊 `; // your message
-  // My message   return `Hi ${name} Thanks for being a part of my social media network. I'am the @PicsrushE founder,A new Online Image Editor completely with web technologies,I'm also a reactjs developer and medium blogger.\n Happy to discuss anytime 😊  \n Happy ${dayName} 😊😊 `;
 };
 
 module.exports = AutoDM;
